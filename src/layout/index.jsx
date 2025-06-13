@@ -42,7 +42,7 @@ import {
   user,
   userActive,
 } from "../assets";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const drawerWidth = 370;
@@ -53,6 +53,8 @@ const Layout = () => {
   const [activeItem, setActiveItem] = useState("Home");
   const [expandedItem, setExpandedItem] = useState("");
   const [selectedChild, setSelectedChild] = useState("");
+
+  const navigate = useNavigate();
 
   const sideBarItems = [
     { route: "/home", title: "Home", icon: home, activeIcon: homeActive },
@@ -220,17 +222,21 @@ const Layout = () => {
   ];
 
   const HandleItemClick = (item) => {
+    console.log(item);
     setActiveItem(item?.title);
     if (item?.children) {
       setExpandedItem(item?.title);
       setSelectedChild(item?.children[0]?.title);
+      navigate(item?.children[0]?.route);
     } else {
       setExpandedItem("");
+      navigate(item?.route);
     }
   };
 
   const HandleChildChange = (item) => {
-    setSelectedChild(item);
+    navigate(item?.route);
+    setSelectedChild(item?.title);
   };
 
   const handleDrawerToggle = () => {
@@ -315,7 +321,7 @@ const Layout = () => {
                         textOverflow: "ellipsis",
                         display: "block",
                       }}
-                      onClick={() => HandleChildChange(child?.title)}
+                      onClick={() => HandleChildChange(child)}
                       title={child?.title}
                     >
                       {child?.title}
