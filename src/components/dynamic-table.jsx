@@ -56,8 +56,6 @@ const DynamicTable = ({
     const cell = column.component
       ? column.component(item)
       : getValue(item, column.key);
-    console.log(cell);
-    console.log(column);
     return column.key[0] === "action" ? (
       <Stack
         direction="row"
