@@ -46,6 +46,10 @@ import rightArrow from "./icons/rightArrow.svg";
 import DropDownIcon from "./icons/DropDownIcon.svg";
 import Account from "./icons/Account.svg";
 import logout from "./icons/logout.svg";
+import download from "./icons/Download.svg";
+import exportIcon from "./icons/export.svg";
+import downArrow from "./icons/down_arrow.svg";
+import modalClose from "./icons/modalClose.svg";
 
 export {
   userProfileImage,
@@ -96,4 +100,8 @@ export {
   DropDownIcon,
   Account,
   logout,
+  download,
+  exportIcon,
+  downArrow,
+  modalClose,
 };

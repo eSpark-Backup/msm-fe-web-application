@@ -30,3 +30,8 @@ body {
   background-color: #EAEAEA;
   font-family: "Gilroy", sans-serif;
 }
+
+
+.MuiBackdrop-root-MuiModal-backdrop {
+  background-color: #ee0000 !important;
+}

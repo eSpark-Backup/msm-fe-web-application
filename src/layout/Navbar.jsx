@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Backdrop,
   Box,
   IconButton,
   Menu,
@@ -183,58 +184,67 @@ const Navbar = ({
           onClick={handleClick}
         />
       </Box>
-      <Menu
-        anchorEl={anchorEl}
+      <Backdrop
         open={open}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backdropFilter: "blur(0.5px)",
+          backgroundColor: "#A49D9D7A",
         }}
       >
-        <MenuItem
-          sx={{
-            width: "220px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
           }}
         >
-          <Typography
-            sx={{ fontSize: "21.19px", fontWeight: "400", color: "#000000" }}
+          <MenuItem
+            sx={{
+              width: "220px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-            Account
-          </Typography>
-          <img
-            src={Account}
-            alt="Icon"
-            style={{ width: "21px", height: "21px" }}
-          />
-        </MenuItem>
-        <MenuItem
-          sx={{
-            width: "220px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            sx={{ fontSize: "21.19px", fontWeight: "400", color: "#FB3030" }}
+            <Typography
+              sx={{ fontSize: "21.19px", fontWeight: "400", color: "#000000" }}
+            >
+              Account
+            </Typography>
+            <img
+              src={Account}
+              alt="Icon"
+              style={{ width: "21px", height: "21px" }}
+            />
+          </MenuItem>
+          <MenuItem
+            sx={{
+              width: "220px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-            Logout
-          </Typography>
-          <img
-            src={logout}
-            alt="Icon"
-            style={{ width: "21px", height: "21px" }}
-          />
-        </MenuItem>
-      </Menu>
+            <Typography
+              sx={{ fontSize: "21.19px", fontWeight: "400", color: "#FB3030" }}
+            >
+              Logout
+            </Typography>
+            <img
+              src={logout}
+              alt="Icon"
+              style={{ width: "21px", height: "21px" }}
+            />
+          </MenuItem>
+        </Menu>
+      </Backdrop>
     </Box>
   );
 };

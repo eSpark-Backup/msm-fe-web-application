@@ -205,3 +205,24 @@ export const sideBarItems = [
     activeIcon: settingsActive,
   },
 ];
+
+export const tableData = [
+  {
+    id: 1,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    severity: "critical",
+    assignee: "Tarmmimi",
+    status: "Acknowledge",
+  },
+  {
+    id: 2,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    severity: "critical",
+    assignee: "Non-Assign",
+    status: "Acknowledge",
+  },
+];
