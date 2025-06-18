@@ -10,6 +10,16 @@ export const theme = createTheme({
       xl: 1921,
     },
   },
+  palette: {
+    primary: {
+      main: "#F2F8FD",
+      light: "#FFFFFF",
+      dark: "#000000",
+    },
+  },
+  typography: {
+    fontFamily: "'Gilroy', sans-serif",
+  },
   components: {
     MuiButton: {
       styleOverrides: {
