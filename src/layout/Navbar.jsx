@@ -67,7 +67,7 @@ const Navbar = ({
               fontSize:
                 expandedItem === ""
                   ? { xs: "18.14px", md: "36.14px" }
-                  : { xs: "14.72px", md: "28.72px" },
+                  : { xs: "14.72px", md: "36.14px" },
               fontWeight: "400",
               color: expandedItem === "" ? "#000000" : "#5D5A5A",
             }}
@@ -79,7 +79,7 @@ const Navbar = ({
               <img src={rightArrow} alt="" />
               <Typography
                 sx={{
-                  fontSize: { xs: "14.72px", md: "28.72px" },
+                  fontSize: { xs: "14.72px", md: "36.14px" },
                   fontWeight: "400",
                   color: "#000000",
                 }}
@@ -103,7 +103,7 @@ const Navbar = ({
             p: { xs: "5px", md: "15px 20px" },
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "flex-start",
             columnGap: { xs: "5px", md: "15px" },
             borderRadius: "12px",
           }}
@@ -121,7 +121,7 @@ const Navbar = ({
             sx={{
               display: "flex",
               flexDirection: { xs: "row", md: "column" },
-              rowGap: "3px",
+              rowGap: "1px",
               alignItems: { xs: "center", md: "flex-start" },
             }}
           >
