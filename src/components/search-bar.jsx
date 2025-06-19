@@ -25,7 +25,7 @@ const SearchBar = ({ name, placeholder, onInputChange, value }) => {
           fontSize: "15.5px",
           fontWeight: "500",
           height: "50px",
-          width: "320px",
+          width: { xs: "100%", md: "320px" },
         },
         "& .MuiOutlinedInput-input": {
           // Optional: set padding or override input style

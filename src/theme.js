@@ -32,6 +32,7 @@ export const theme = createTheme({
           alignItems: "center",
           lineHeight: "0px",
           textTransform: "none",
+          columnGap: "10px",
         },
       },
       variants: [

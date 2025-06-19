@@ -1,4 +1,4 @@
-import { Tab, Tabs } from "@mui/material";
+import { Tab, Tabs, Box } from "@mui/material";
 import { useState } from "react";
 
 const CustomizeTabs = ({ tabs, onChange }) => {
@@ -12,47 +12,63 @@ const CustomizeTabs = ({ tabs, onChange }) => {
   };
 
   return (
-    <Tabs
-      value={selectedTab}
-      onChange={handleTabChange}
-      variant="scrollable"
-      scrollButtons="auto"
-      TabIndicatorProps={{ style: { display: "none" } }}
-      // sx={{
-      //   "& .MuiTabs-scroller": {
-      //     display: "flex",
-      //   },
-      //   "& .MuiTabs-flexContainer": {
-      //     width: "100%",
-      //     justifyContent: "space-between",
-      //     gap: "20px", // optional gap between tabs
-      //   },
-      // }}
+    <Box
+      sx={{
+        width: "100%",
+        maxWidth: "100vw", // Ensure it doesn't exceed viewport width
+        overflow: "hidden", // Hide any potential overflow
+      }}
     >
-      {tabs.map((tab, index) => (
-        <Tab
-          key={index}
-          label={tab}
-          sx={{
-            flex: 1,
-            maxWidth: "none",
-            backgroundColor: "#FFFFFF",
-            textTransform: "none",
-            color: "#00000085",
-            fontWeight: 400,
-            fontSize: "20.48px",
-            borderRadius: "7px",
-            padding: "15px 26px",
-            "&.Mui-selected": {
-              background: "#D5DFE6",
-              color: "#000000 !important",
+      <Tabs
+        value={selectedTab}
+        onChange={handleTabChange}
+        variant="scrollable"
+        scrollButtons="auto"
+        TabIndicatorProps={{ style: { display: "none" } }}
+        sx={{
+          width: "100%",
+          maxWidth: "100%",
+          overflow: "hidden",
+          "& .MuiTabs-scroller": {
+            overflow: "auto !important",
+            scrollbarWidth: "none", // For Firefox
+            "&::-webkit-scrollbar": {
+              display: "none", // For Chrome/Safari
             },
-            minWidth: "190px",
-          }}
-          disableRipple
-        />
-      ))}
-    </Tabs>
+          },
+          "& .MuiTabs-flexContainer": {
+            display: "flex",
+            gap: "20px",
+            width: "max-content", // Allow container to grow with content
+            minWidth: "100%", // But at least take full width
+          },
+        }}
+      >
+        {tabs.map((tab, index) => (
+          <Tab
+            key={index}
+            label={tab}
+            sx={{
+              flex: "1 0 auto", // Allow shrinking but not growing
+              minWidth: "fit-content", // Minimum width based on content
+              backgroundColor: "#FFFFFF",
+              textTransform: "none",
+              color: "#00000085",
+              fontWeight: 400,
+              fontSize: "20.48px",
+              borderRadius: "7px",
+              padding: "15px 26px",
+              "&.Mui-selected": {
+                background: "#D5DFE6",
+                color: "#000000 !important",
+              },
+              whiteSpace: "nowrap",
+            }}
+            disableRipple
+          />
+        ))}
+      </Tabs>
+    </Box>
   );
 };
 

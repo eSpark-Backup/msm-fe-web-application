@@ -1,9 +1,12 @@
 import { Box, Button, Typography } from "@mui/material";
 import { online } from "../../assets";
 import { planDetailsContent } from "../../constant";
-import { DataProgressBar } from "../../components";
+import { DataProgressBar, DynamicModal } from "../../components";
+import { useState } from "react";
+import { UpdatePlanModal } from "../../components/modals/index.js";
 
 const Subscription = () => {
+  const [updatePlan, setUpdatePlan] = useState(false);
   return (
     <Box
       sx={{
@@ -78,7 +81,13 @@ const Subscription = () => {
               flexDirection: "column",
             }}
           >
-            <Button variant="primary">Update Plan</Button>
+            <Button
+              variant="primary"
+              disableRipple
+              onClick={() => setUpdatePlan(true)}
+            >
+              Update Plan
+            </Button>
             <Button variant="secondary">Apply Coupon</Button>
           </Box>
         </Box>
@@ -116,6 +125,21 @@ const Subscription = () => {
           );
         })}
       </Box>
+      <DynamicModal
+        open={updatePlan}
+        handleClose={() => setUpdatePlan(false)}
+        cancelButtonText={"Cancel"}
+        handleCancel={() => setUpdatePlan(false)}
+        sx={{
+          width: {
+            xs: "95%",
+            md: "90%",
+            lg: "80%",
+          },
+        }}
+      >
+        <UpdatePlanModal />
+      </DynamicModal>
     </Box>
   );
 };

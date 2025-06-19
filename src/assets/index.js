@@ -53,6 +53,7 @@ import modalClose from "./icons/modalClose.svg";
 import refresh2 from "./icons/refresh2.svg";
 import search from "./icons/search.svg";
 import plus from "./icons/plus.svg";
+import card from "./icons/credit-card.svg";
 
 export {
   userProfileImage,
@@ -110,4 +111,5 @@ export {
   refresh2,
   search,
   plus,
+  card,
 };

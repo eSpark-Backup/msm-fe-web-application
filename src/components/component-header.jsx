@@ -14,6 +14,8 @@ const ComponentHeader = ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        flexWrap: "wrap",
+        rowGap: "10px",
       }}
     >
       <Box sx={{ display: "flex", columnGap: "15px" }}>{children}</Box>

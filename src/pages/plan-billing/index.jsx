@@ -3,11 +3,13 @@ import {
   ComponentHeader,
   CustomizeTabs,
   DataProgressBar,
+  DynamicModal,
 } from "../../components/index.js";
 import { useEffect, useState } from "react";
-import { downArrow, online } from "../../assets/index.js";
+import { card, downArrow, online, plus } from "../../assets/index.js";
 import { planDetailsContent } from "../../constant/index.js";
 import Subscription from "./subscription.jsx";
+import { PaymentAlertModal } from "../../components/modals/index.js";
 
 const PlanBilling = () => {
   const tabs = [
@@ -21,6 +23,7 @@ const PlanBilling = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [selectedChoice, setSelectedChoice] = useState("last");
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,104 +38,132 @@ const PlanBilling = () => {
     event.stopPropagation();
     setAnchorEl(null);
   };
-
-  const handleChoiceChange = (choice) => {};
   return (
-    <Paper sx={{ backgroundColor: "#FFFBFB" }}>
-      <ComponentHeader
-        onInputChange={(e) => console.log(e.target.value)}
-        handleRefresh={() => {}}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            columnGap: "10px",
-            cursor: "pointer",
-          }}
-          onClick={handleClick}
-        >
-          <Typography
-            sx={{ color: "#454545", fontSize: "24.1px", fontWeight: "400" }}
-          >
-            {selectedChoice === "last"
-              ? "Last Day"
-              : selectedChoice.slice(0, 1).toUpperCase() +
-                selectedChoice.slice(1)}
-          </Typography>
-          <img src={downArrow} alt="Icon" />
-        </Box>
-      </ComponentHeader>
+    <>
       <Box
         sx={{
-          border: "1px solid #00000066",
-          borderRadius: "6px",
-          p: "15px",
-          mt: "10px",
+          m: "10px 0px 20px 0px",
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
         }}
       >
-        <CustomizeTabs onChange={(val) => setActiveTab(val)} tabs={tabs} />
+        <Box sx={{ width: "220px" }}>
+          <Button
+            variant="primary"
+            disableRipple
+            onClick={() => setShowPaymentModal(true)}
+          >
+            <img src={card} alt="" />
+            Payment Alert
+          </Button>
+        </Box>
       </Box>
-      {activeTab === 0 ? <Subscription /> : <></>}
-      <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-        PaperProps={{
-          sx: {
-            width: "226px",
-            p: "10px",
-            borderRadius: "7.77px",
-            border: "none",
-            backgroundColor: "white",
-            marginLeft: "10px",
-          },
-        }}
-      >
+      <Paper sx={{ backgroundColor: "#FFFBFB" }}>
+        <ComponentHeader
+          onInputChange={(e) => console.log(e.target.value)}
+          handleRefresh={() => {}}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              columnGap: "10px",
+              cursor: "pointer",
+            }}
+            onClick={handleClick}
+          >
+            <Typography
+              sx={{ color: "#454545", fontSize: "24.1px", fontWeight: "400" }}
+            >
+              {selectedChoice === "last"
+                ? "Last Day"
+                : selectedChoice.slice(0, 1).toUpperCase() +
+                  selectedChoice.slice(1)}
+            </Typography>
+            <img src={downArrow} alt="Icon" />
+          </Box>
+        </ComponentHeader>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            cursor: "pointer",
+            border: "1px solid #00000066",
+            borderRadius: "6px",
+            p: "15px",
+            mt: "10px",
           }}
         >
-          <Typography
-            sx={{ fontSize: "21.19px" }}
-            onClick={() => handleMenuItemClicked("last")}
-          >
-            Last Day
-          </Typography>
-          <img
-            src={downArrow}
-            alt="Icon"
-            style={{ transform: "rotate(180deg)" }}
-            onClick={handleClose}
-          />
+          <CustomizeTabs onChange={(val) => setActiveTab(val)} tabs={tabs} />
         </Box>
-        <Typography
-          sx={{ fontSize: "21.19px", mt: "10px", cursor: "pointer" }}
-          onClick={() => handleMenuItemClicked("weekly")}
+
+        {activeTab === 0 ? <Subscription /> : <></>}
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          PaperProps={{
+            sx: {
+              width: "226px",
+              p: "10px",
+              borderRadius: "7.77px",
+              border: "none",
+              backgroundColor: "white",
+              marginLeft: "10px",
+            },
+          }}
         >
-          Weekly
-        </Typography>
-        <Typography
-          sx={{ fontSize: "21.19px", mt: "10px", cursor: "pointer" }}
-          onClick={() => handleMenuItemClicked("monthly")}
-        >
-          Monthly
-        </Typography>
-      </Menu>
-    </Paper>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+              cursor: "pointer",
+            }}
+          >
+            <Typography
+              sx={{ fontSize: "21.19px" }}
+              onClick={() => handleMenuItemClicked("last")}
+            >
+              Last Day
+            </Typography>
+            <img
+              src={downArrow}
+              alt="Icon"
+              style={{ transform: "rotate(180deg)" }}
+              onClick={handleClose}
+            />
+          </Box>
+          <Typography
+            sx={{ fontSize: "21.19px", mt: "10px", cursor: "pointer" }}
+            onClick={() => handleMenuItemClicked("weekly")}
+          >
+            Weekly
+          </Typography>
+          <Typography
+            sx={{ fontSize: "21.19px", mt: "10px", cursor: "pointer" }}
+            onClick={() => handleMenuItemClicked("monthly")}
+          >
+            Monthly
+          </Typography>
+        </Menu>
+      </Paper>
+
+      <DynamicModal
+        open={showPaymentModal}
+        handleClose={() => setShowPaymentModal(false)}
+        hideFooter={true}
+      >
+        <PaymentAlertModal />
+      </DynamicModal>
+    </>
   );
 };
 

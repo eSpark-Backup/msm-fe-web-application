@@ -10,6 +10,8 @@ const DynamicModal = ({
   acceptButtonText,
   handleCancel,
   handleAccept,
+  hideFooter,
+  rounded,
 }) => {
   return (
     <Modal
@@ -37,7 +39,7 @@ const DynamicModal = ({
           },
           maxHeight: "90vh",
           background: "#FFF",
-          borderRadius: "35px",
+          borderRadius: rounded ? "35px" : "0px",
           padding: "20px 20px 50px 20px",
           display: "flex",
           flexDirection: "column",
@@ -74,25 +76,36 @@ const DynamicModal = ({
         >
           {children}
         </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            columnGap: "15px",
-          }}
-        >
-          <Box sx={{ width: "203.70px", height: "50px" }}>
-            <Button variant="secondary" disableRipple onClick={handleCancel}>
-              {cancelButtonText}
-            </Button>
+        {!hideFooter && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              columnGap: "15px",
+              py: "5px",
+            }}
+          >
+            {cancelButtonText && (
+              <Box sx={{ width: "203.70px", height: "50px" }}>
+                <Button
+                  variant="secondary"
+                  disableRipple
+                  onClick={handleCancel}
+                >
+                  {cancelButtonText}
+                </Button>
+              </Box>
+            )}
+            {acceptButtonText && (
+              <Box sx={{ width: "203.70px", height: "50px" }}>
+                <Button variant="primary" disableRipple onClick={handleAccept}>
+                  {acceptButtonText}
+                </Button>
+              </Box>
+            )}
           </Box>
-          <Box sx={{ width: "203.70px", height: "50px" }}>
-            <Button variant="primary" disableRipple onClick={handleAccept}>
-              {acceptButtonText}
-            </Button>
-          </Box>
-        </Box>
+        )}
       </Box>
     </Modal>
   );

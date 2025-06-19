@@ -281,3 +281,95 @@ export const planDetailsContent = [
     progress: "30%",
   },
 ];
+
+export const thingsBoardPricing = [
+  {
+    name: "Things Board Cloud Maker",
+    price: "10.00",
+    features: [
+      "Up to 30 Device",
+      "Up to 30 Asset",
+      "10 million data points per month",
+    ],
+    width: 270,
+    height: 260,
+  },
+  {
+    name: "Things Board Cloud Prototype",
+    price: "149.00",
+    features: [
+      "Up to 100 Device",
+      "Up to 100 Asset",
+      "100 million data points per month",
+      "White-Labeling",
+    ],
+    width: 270,
+    height: 260,
+  },
+  {
+    name: "Things Board Cloud Business",
+    price: "749.00",
+    features: [
+      "Up to 1000 Device",
+      "Up to 1000 Asset",
+      "1 billion data points per month",
+      "White-Labeling",
+    ],
+    width: 270,
+    height: 260,
+  },
+];
+
+export const trendzBoardPricing = [
+  {
+    name: "Things Board Cloud Maker + Trendz",
+    price: "20.00",
+    features: [
+      "Up to 30 Device",
+      "Up to 30 Asset",
+      "10 million data points per month",
+      "Trendz Analytics",
+    ],
+    width: 325,
+    height: 277,
+  },
+  {
+    name: "Things Board Cloud Prototype + Trendz",
+    price: "149.00",
+    features: [
+      "Up to 100 Device",
+      "Up to 100 Asset",
+      "100 million data points per month",
+      "White-Labeling",
+      "Trendz Analytics",
+    ],
+    width: 325,
+    height: 277,
+  },
+  {
+    name: "Things Board Cloud Startup + Trendz",
+    price: "649.00",
+    features: [
+      "Up to 500 Device",
+      "Up to 500 Asset",
+      "500 million data points per month",
+      "White-Labeling",
+      "Trendz Analytics",
+    ],
+    width: 325,
+    height: 277,
+  },
+  {
+    name: "Things Board Cloud Business + Trendz",
+    price: "1199.00",
+    features: [
+      "Up to 1000 Device",
+      "Up to 1000 Asset",
+      "1 billion data points per month",
+      "White-Labeling",
+      "Trendz Analytics",
+    ],
+    width: 325,
+    height: 277,
+  },
+];
