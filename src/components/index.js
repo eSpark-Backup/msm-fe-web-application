@@ -6,6 +6,7 @@ import ComponentHeader from "./component-header";
 import CustomizeTabs from "./customize-tabs";
 import DataProgressBar from "./data-progress-bar";
 import SearchBar from "./search-bar";
+import DropdownFilterMenu from "./dropdown-filter-menu";
 
 export {
   OutlinedInput,
@@ -16,4 +17,5 @@ export {
   CustomizeTabs,
   DataProgressBar,
   SearchBar,
+  DropdownFilterMenu,
 };
