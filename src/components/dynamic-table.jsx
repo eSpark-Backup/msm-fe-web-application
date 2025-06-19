@@ -2,6 +2,7 @@ import {
   Avatar,
   Backdrop,
   Box,
+  Chip,
   LinearProgress,
   Menu,
   MenuItem,
@@ -116,14 +117,16 @@ const DynamicTable = ({
       >
         <Typography sx={{ textAlign: "center", fontSize: "22.5px" }}>
           {cell}
-          <img
-            src={downArrow}
-            alt="Icon"
-            style={{ cursor: "pointer" }}
-            onClick={handleClick}
-          />
         </Typography>
+        <img
+          src={downArrow}
+          alt="Icon"
+          style={{ cursor: "pointer" }}
+          onClick={handleClick}
+        />
       </Box>
+    ) : column.key[0] === "chip" ? (
+      <Chip label={item?.chip?.label} variant={item?.chip?.variant} />
     ) : (
       cell
     );

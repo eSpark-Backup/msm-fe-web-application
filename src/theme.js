@@ -132,23 +132,19 @@ export const theme = createTheme({
     MuiTableHead: {
       styleOverrides: {
         root: {
-          backgroundColor: "transparent",
           border: "1px solid #00000066",
           ".MuiTableCell-root": {
             color: "#000000",
             borderRadius: "6px",
-          },
-          borderRadius: "6px",
-          "& .MuiTableCell-root": {
             borderBottom: "none",
-            borderRadius: "6px",
             fontSize: "22.5px",
             fontWeight: 400,
             lineHeight: 1,
             letterSpacing: 0.5,
             textTransform: "initial",
-            color: "#000000",
+            padding: "20px 0px",
           },
+          borderRadius: "6px",
         },
       },
     },
@@ -164,7 +160,54 @@ export const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      variants: [
+        {
+          props: { variant: "green" },
+          style: {
+            paddingTop: "3.41px",
+            paddingRight: "14px",
+            paddingBottom: "3.41px",
+            paddingLeft: "14px",
+            backgroundColor: "#A9F49A",
+            border: "0.57px solid #30F408",
+            borderRadius: "10.5px",
+            color: "#22A309",
+            textTransform: "capitalize",
+            height: "21px",
+          },
+        },
+        {
+          props: { variant: "red" },
+          style: {
+            paddingTop: "7px",
+            paddingRight: "14px",
+            paddingBottom: "3.41px",
+            paddingLeft: "14px",
+            backgroundColor: "#E434153B",
+            border: "0.57px solid #E43415",
+            borderRadius: "10.5px",
+            color: "#E43415",
+            textTransform: "capitalize",
+            height: "27px",
+          },
+        },
+        {
+          props: { variant: "yellow" },
+          style: {
+            paddingTop: "7px",
+            paddingRight: "14px",
+            paddingBottom: "3.41px",
+            paddingLeft: "14px",
+            backgroundColor: "#E4D3153B",
+            border: "0.57px solid #E4AD15",
+            borderRadius: "10.5px",
+            color: "#E4AD15",
+            textTransform: "capitalize",
+            height: "27px",
+          },
+        },
+      ],
+    },
   },
 });
-
-// box-shadow: ;
