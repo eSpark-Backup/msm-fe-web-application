@@ -145,13 +145,6 @@ const DynamicTable = ({
                     <Stack
                       direction={"row"}
                       alignItems={"center"}
-                      //   justifyContent={
-                      //     column.key[0] === "action"
-                      //       ? "flex-end"
-                      //       : column.left
-                      //       ? "flex-start"
-                      //       : "center"
-                      //   }
                       justifyContent={"center"}
                     >
                       <Stack direction="row">{column.name}</Stack>
@@ -170,7 +163,6 @@ const DynamicTable = ({
                           textAlign: "center",
                           pl: "0px",
                         }}
-                        // sx={{ textAlign: "center" }}
                         key={column.key.join(".")}
                       >
                         {generateCell(column, item)}

@@ -42,7 +42,6 @@ export const theme = createTheme({
             height: "54px",
             color: "#FFFFFF",
             borderRadius: "10.36px",
-            // padding: "14px 19.93px 10.87px 49px",
             "&:hover": {
               background: "#147FCC",
               color: "#FFF",
@@ -57,7 +56,6 @@ export const theme = createTheme({
             color: "#0C89E2",
             borderRadius: "10.36px",
             border: "1px solid #0C89E2",
-            // padding: "14px 19.93px 10.87px 49px",
             "&:hover": {
               background: "#FFFFFF",
             },

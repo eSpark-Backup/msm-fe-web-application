@@ -63,7 +63,6 @@ const DynamicModal = ({
         <Box
           sx={{
             flex: 1,
-            // margin: "20px 0",
             height: "calc(100% - 130px)",
             overflowY: "auto",
             msOverflowStyle: "none",
