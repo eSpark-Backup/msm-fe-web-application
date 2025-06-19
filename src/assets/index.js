@@ -50,6 +50,9 @@ import download from "./icons/Download.svg";
 import exportIcon from "./icons/export.svg";
 import downArrow from "./icons/down_arrow.svg";
 import modalClose from "./icons/modalClose.svg";
+import refresh2 from "./icons/refresh2.svg";
+import search from "./icons/search.svg";
+import plus from "./icons/plus.svg";
 
 export {
   userProfileImage,
@@ -104,4 +107,7 @@ export {
   exportIcon,
   downArrow,
   modalClose,
+  refresh2,
+  search,
+  plus,
 };

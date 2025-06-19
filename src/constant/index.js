@@ -238,3 +238,46 @@ export const tableData = [
     chip: { variant: "yellow", label: "paid" },
   },
 ];
+
+export const planDetailsContent = [
+  {
+    name: "Assets",
+    value: "488/500",
+    progress: "60%",
+  },
+  {
+    name: "Devices",
+    value: "488/500",
+    progress: "30%",
+  },
+  {
+    name: "Transport Message",
+    value: "488/500",
+    progress: "30%",
+  },
+  {
+    name: "Transport Data Point",
+    value: "488/500",
+    progress: "50%",
+  },
+  {
+    name: "Storage Data Point  days",
+    value: "488/500",
+    progress: "20%",
+  },
+  {
+    name: "Rule Engine Execution",
+    value: "488/500",
+    progress: "80%",
+  },
+  {
+    name: "Java script Function Execution",
+    value: "488/500",
+    progress: "30%",
+  },
+  {
+    name: "SMS",
+    value: "488/500",
+    progress: "30%",
+  },
+];

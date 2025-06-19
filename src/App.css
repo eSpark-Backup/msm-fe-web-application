@@ -29,4 +29,5 @@
 body {
   background-color: #EAEAEA;
   font-family: "Gilroy", sans-serif;
+  overflow-x: hidden;
 }
