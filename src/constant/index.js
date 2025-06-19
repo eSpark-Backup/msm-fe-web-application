@@ -205,3 +205,36 @@ export const sideBarItems = [
     activeIcon: settingsActive,
   },
 ];
+
+export const tableData = [
+  {
+    id: 1,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    severity: "critical",
+    assignee: "Tarmmimi",
+    status: "Acknowledge",
+    chip: { variant: "green", label: "paid" },
+  },
+  {
+    id: 2,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    severity: "critical",
+    assignee: "Non-Assign",
+    status: "Acknowledge",
+    chip: { variant: "red", label: "paid" },
+  },
+  {
+    id: 3,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    severity: "critical",
+    assignee: "Non-Assign",
+    status: "Acknowledge",
+    chip: { variant: "yellow", label: "paid" },
+  },
+];

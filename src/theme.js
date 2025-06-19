@@ -42,7 +42,6 @@ export const theme = createTheme({
             height: "54px",
             color: "#FFFFFF",
             borderRadius: "10.36px",
-            padding: "14px 19.93px 10.87px 49px",
             "&:hover": {
               background: "#147FCC",
               color: "#FFF",
@@ -57,7 +56,6 @@ export const theme = createTheme({
             color: "#0C89E2",
             borderRadius: "10.36px",
             border: "1px solid #0C89E2",
-            padding: "14px 19.93px 10.87px 49px",
             "&:hover": {
               background: "#FFFFFF",
             },
@@ -129,7 +127,85 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          border: "1px solid #00000066",
+          ".MuiTableCell-root": {
+            color: "#000000",
+            borderRadius: "6px",
+            borderBottom: "none",
+            fontSize: "22.5px",
+            fontWeight: 400,
+            lineHeight: 1,
+            letterSpacing: 0.5,
+            textTransform: "initial",
+            padding: "20px 0px",
+          },
+          borderRadius: "6px",
+        },
+      },
+    },
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          "& .MuiTableCell-root": {
+            borderBottom: "none",
+            color: "#000000",
+            fontSize: "22.5px",
+            padding: "10px 16px",
+          },
+        },
+      },
+    },
+    MuiChip: {
+      variants: [
+        {
+          props: { variant: "green" },
+          style: {
+            paddingTop: "3.41px",
+            paddingRight: "14px",
+            paddingBottom: "3.41px",
+            paddingLeft: "14px",
+            backgroundColor: "#A9F49A",
+            border: "0.57px solid #30F408",
+            borderRadius: "10.5px",
+            color: "#22A309",
+            textTransform: "capitalize",
+            height: "21px",
+          },
+        },
+        {
+          props: { variant: "red" },
+          style: {
+            paddingTop: "7px",
+            paddingRight: "14px",
+            paddingBottom: "3.41px",
+            paddingLeft: "14px",
+            backgroundColor: "#E434153B",
+            border: "0.57px solid #E43415",
+            borderRadius: "10.5px",
+            color: "#E43415",
+            textTransform: "capitalize",
+            height: "27px",
+          },
+        },
+        {
+          props: { variant: "yellow" },
+          style: {
+            paddingTop: "7px",
+            paddingRight: "14px",
+            paddingBottom: "3.41px",
+            paddingLeft: "14px",
+            backgroundColor: "#E4D3153B",
+            border: "0.57px solid #E4AD15",
+            borderRadius: "10.5px",
+            color: "#E4AD15",
+            textTransform: "capitalize",
+            height: "27px",
+          },
+        },
+      ],
+    },
   },
 });
-
-// box-shadow: ;

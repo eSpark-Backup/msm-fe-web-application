@@ -16,7 +16,6 @@ const Layout = () => {
   const navigate = useNavigate();
 
   const HandleItemClick = (item) => {
-    console.log(item);
     setActiveItem(item?.title);
     if (item?.children) {
       setExpandedItem(item?.title);
