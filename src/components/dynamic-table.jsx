@@ -36,13 +36,18 @@ const DynamicTable = ({
   page,
   handlePageChange,
   total,
+  onRowClick,
+  handleSelectAssign,
   ...rest
 }) => {
+  const [assigns, setAssigns] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = (event) => {
+  const handleClick = (event, users) => {
+    event.stopPropagation();
     setAnchorEl(event.currentTarget);
+    setAssigns(users);
   };
 
   const handleClose = (event) => {
@@ -73,13 +78,19 @@ const DynamicTable = ({
               src={download}
               alt="Icon"
               style={{ cursor: "pointer" }}
-              onClick={handleDownload}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDownload(column)
+              }}
             />
             <img
               src={exportIcon}
               alt="Icon"
               style={{ cursor: "pointer" }}
-              onClick={handleExport}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDownload(column)
+              }}
             />
           </>
         )}
@@ -100,7 +111,10 @@ const DynamicTable = ({
               src={threeVerticalDots}
               alt="Icon"
               style={{ cursor: "pointer" }}
-              onClick={handleInfo}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleInfo(e)
+              }}
             />
           </>
         )}
@@ -122,7 +136,7 @@ const DynamicTable = ({
           src={downArrow}
           alt="Icon"
           style={{ cursor: "pointer" }}
-          onClick={handleClick}
+          onClick={(e) => handleClick(e, column?.users)}
         />
       </Box>
     ) : column.key[0] === "chip" ? (
@@ -156,7 +170,7 @@ const DynamicTable = ({
             {!isLoading && (
               <TableBody>
                 {data?.map((item, index) => (
-                  <TableRow key={index}>
+                  <TableRow onClick={() => onRowClick(item)} key={index}>
                     {extendedColumns?.map((column) => (
                       <TableCell
                         sx={{
@@ -235,36 +249,56 @@ const DynamicTable = ({
               columnGap: "10px",
             }}
           >
-            <Box
-              sx={{
-                width: "304px",
-                display: "flex",
-                alignItems: "center",
-                backgroundColor: "#D9D9D978",
-                p: "15px",
-                columnGap: "10px",
-              }}
-            >
-              <Avatar
-                src={userProfileImage}
-                alt="User"
-                sx={{
-                  width: 57,
-                  height: 57,
-                  objectFit: "fill",
-                }}
-              />
-              <Box
-                sx={{ display: "flex", flexDirection: "column", rowGap: "0px" }}
-              >
-                <Typography sx={{ fontSize: "22.5px", fontWeight: "400" }}>
-                  John Deo
-                </Typography>
-                <Typography sx={{ fontSize: "13.3px", fontWeight: "400" }}>
-                  Johndeo@gmail.com
-                </Typography>
-              </Box>
-            </Box>
+            <Stack gap={2}>
+              {assigns?.map((item) => {
+                return (
+                  <Box
+                    onClick={(e) => {
+                      handleSelectAssign && handleSelectAssign(item);
+                      handleClose(e);
+                    }}
+                    key={item?.id}
+                    sx={{
+                      width: "304px",
+                      display: "flex",
+                      alignItems: "center",
+                      backgroundColor: "#D9D9D978",
+                      p: "15px",
+                      columnGap: "10px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <Avatar
+                      src={item?.userImage}
+                      alt="User"
+                      sx={{
+                        width: 57,
+                        height: 57,
+                        objectFit: "fill",
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        rowGap: "0px",
+                      }}
+                    >
+                      <Typography
+                        sx={{ fontSize: "22.5px", fontWeight: "400" }}
+                      >
+                        {item?.name}
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: "13.3px", fontWeight: "400" }}
+                      >
+                        {item?.email}
+                      </Typography>
+                    </Box>
+                  </Box>
+                );
+              })}
+            </Stack>
             <img
               src={downArrow}
               alt="Icon"
