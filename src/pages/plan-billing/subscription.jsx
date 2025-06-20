@@ -3,10 +3,11 @@ import { online } from "../../assets";
 import { planDetailsContent } from "../../constant";
 import { DataProgressBar, DynamicModal } from "../../components";
 import { useState } from "react";
-import { UpdatePlanModal } from "../../components/modals/index.js";
+import { CouponModal, UpdatePlanModal } from "../../components/modals/index.js";
 
 const Subscription = () => {
   const [updatePlan, setUpdatePlan] = useState(false);
+  const [couponModal, setCouponModal] = useState(false);
   return (
     <Box
       sx={{
@@ -88,7 +89,13 @@ const Subscription = () => {
             >
               Update Plan
             </Button>
-            <Button variant="secondary">Apply Coupon</Button>
+            <Button
+              variant="secondary"
+              disableRipple
+              onClick={() => setCouponModal(true)}
+            >
+              Apply Coupon
+            </Button>
           </Box>
         </Box>
       </Box>
@@ -139,6 +146,17 @@ const Subscription = () => {
         }}
       >
         <UpdatePlanModal />
+      </DynamicModal>
+      <DynamicModal
+        open={couponModal}
+        handleClose={() => setCouponModal(false)}
+        footerDirection={"space-between"}
+        cancelButtonText={"Back"}
+        handleCancel={() => setCouponModal(false)}
+        acceptButtonText={"Update"}
+        handleAccept={() => setCouponModal(false)}
+      >
+        <CouponModal />
       </DynamicModal>
     </Box>
   );

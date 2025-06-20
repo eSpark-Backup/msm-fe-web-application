@@ -4,6 +4,7 @@ import {
   CustomizeTabs,
   DataProgressBar,
   DynamicModal,
+  DropdownFilterMenu,
 } from "../../components/index.js";
 import { useEffect, useState } from "react";
 import { card, downArrow, online, plus } from "../../assets/index.js";
@@ -20,24 +21,14 @@ const PlanBilling = () => {
     "Audit Logs",
   ];
   const [activeTab, setActiveTab] = useState(0);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const [selectedChoice, setSelectedChoice] = useState("last");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [filter1El, setFilter1El] = useState(null);
+  const [filterValue1, setFilterValue1] = useState("last");
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClickFilter1 = (event) => {
+    setFilter1El(event.currentTarget);
   };
 
-  const handleMenuItemClicked = (item) => {
-    setSelectedChoice(item);
-    setAnchorEl(null);
-  };
-
-  const handleClose = (event) => {
-    event.stopPropagation();
-    setAnchorEl(null);
-  };
   return (
     <>
       <Box
@@ -72,15 +63,16 @@ const PlanBilling = () => {
               columnGap: "10px",
               cursor: "pointer",
             }}
-            onClick={handleClick}
+            onClick={handleClickFilter1}
           >
             <Typography
-              sx={{ color: "#454545", fontSize: "24.1px", fontWeight: "400" }}
+              sx={{
+                color: "#454545",
+                fontSize: "24.1px",
+                fontWeight: "400",
+              }}
             >
-              {selectedChoice === "last"
-                ? "Last Day"
-                : selectedChoice.slice(0, 1).toUpperCase() +
-                  selectedChoice.slice(1)}
+              {filterValue1.slice(0, 1).toUpperCase() + filterValue1.slice(1)}
             </Typography>
             <img src={downArrow} alt="Icon" />
           </Box>
@@ -97,63 +89,6 @@ const PlanBilling = () => {
         </Box>
 
         {activeTab === 0 ? <Subscription /> : <></>}
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
-          PaperProps={{
-            sx: {
-              width: "226px",
-              p: "10px",
-              borderRadius: "7.77px",
-              border: "none",
-              backgroundColor: "white",
-              marginLeft: "10px",
-            },
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              cursor: "pointer",
-            }}
-          >
-            <Typography
-              sx={{ fontSize: "21.19px" }}
-              onClick={() => handleMenuItemClicked("last")}
-            >
-              Last Day
-            </Typography>
-            <img
-              src={downArrow}
-              alt="Icon"
-              style={{ transform: "rotate(180deg)" }}
-              onClick={handleClose}
-            />
-          </Box>
-          <Typography
-            sx={{ fontSize: "21.19px", mt: "10px", cursor: "pointer" }}
-            onClick={() => handleMenuItemClicked("weekly")}
-          >
-            Weekly
-          </Typography>
-          <Typography
-            sx={{ fontSize: "21.19px", mt: "10px", cursor: "pointer" }}
-            onClick={() => handleMenuItemClicked("monthly")}
-          >
-            Monthly
-          </Typography>
-        </Menu>
       </Paper>
 
       <DynamicModal
@@ -163,6 +98,12 @@ const PlanBilling = () => {
       >
         <PaymentAlertModal />
       </DynamicModal>
+      <DropdownFilterMenu
+        anchorEl={filter1El}
+        setAnchorEl={setFilter1El}
+        options={["Last Day", "weekly", "monthly"]}
+        handleSelect={(item) => setFilterValue1(item)}
+      />
     </>
   );
 };

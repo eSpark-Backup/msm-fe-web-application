@@ -48,10 +48,11 @@ const UpdatePlanModal = () => {
         <Box
           sx={{
             display: "flex",
-            columnGap: "30px",
+            // columnGap: "30px",
             flexWrap: "wrap",
             rowGap: "15px",
             mt: "10px",
+            justifyContent: "space-between",
           }}
         >
           {trendzBoardPricing?.map((item, index) => (

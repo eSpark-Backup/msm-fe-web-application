@@ -39,8 +39,7 @@ const CustomizeTabs = ({ tabs, onChange }) => {
           "& .MuiTabs-flexContainer": {
             display: "flex",
             gap: "20px",
-            width: "max-content", // Allow container to grow with content
-            minWidth: "100%", // But at least take full width
+            minWidth: "100%", // Optional; can remove if unnecessary
           },
         }}
       >
@@ -58,6 +57,7 @@ const CustomizeTabs = ({ tabs, onChange }) => {
               fontSize: "20.48px",
               borderRadius: "7px",
               padding: "15px 26px",
+              overflowX: "auto",
               "&.Mui-selected": {
                 background: "#D5DFE6",
                 color: "#000000 !important",

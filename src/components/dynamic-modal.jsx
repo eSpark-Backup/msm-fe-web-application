@@ -12,6 +12,7 @@ const DynamicModal = ({
   handleAccept,
   hideFooter,
   rounded,
+  footerDirection,
 }) => {
   return (
     <Modal
@@ -80,7 +81,7 @@ const DynamicModal = ({
           <Box
             sx={{
               display: "flex",
-              justifyContent: "flex-end",
+              justifyContent: footerDirection ? footerDirection : "flex-end",
               alignItems: "center",
               columnGap: "15px",
               py: "5px",
