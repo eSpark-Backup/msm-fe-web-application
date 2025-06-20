@@ -13,9 +13,12 @@ const ComponentHeader = ({
       sx={{
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-        rowGap: "10px",
+        alignItems: { xs: "flex-start", md: "center" },
+        flexDirection: { xs: "column", md: "row" },
+        gap: 1,
+        ".MuiInputBase-root": {
+          width: { xs: "170px", sm: "320px" },
+        },
       }}
     >
       <Box sx={{ display: "flex", columnGap: "15px" }}>{children}</Box>

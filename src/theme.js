@@ -128,10 +128,17 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          borderCollapse: "separate !important",
+          borderSpacing: 0,
+        },
+      },
+    },
     MuiTableHead: {
       styleOverrides: {
         root: {
-          border: "1px solid #00000066",
           ".MuiTableCell-root": {
             color: "#000000",
             borderRadius: "6px",
@@ -143,7 +150,17 @@ export const theme = createTheme({
             textTransform: "initial",
             padding: "20px 0px",
           },
-          borderRadius: "6px",
+          "& .MuiTableRow-root": {
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              inset: 0,
+              border: "1px solid #00000066",
+              borderRadius: 12,
+              pointerEvents: "none",
+            },
+          },
         },
       },
     },
@@ -156,6 +173,15 @@ export const theme = createTheme({
             fontSize: "22.5px",
             padding: "10px 16px",
           },
+          // position: "relative",
+          // "&::after": {
+          //   content: '""',
+          //   position: "absolute",
+          //   inset: 0,
+          //   border: "1px solid #00000066",
+          //   borderRadius: "0 0 12px 12px",
+          //   pointerEvents: "none",
+          // },
         },
       },
     },
@@ -207,6 +233,43 @@ export const theme = createTheme({
           },
         },
       ],
+    },
+    MuiLinearProgress: {
+      styleOverrides: {
+        root: {
+          height: 5,
+          borderRadius: 5,
+          backgroundColor: "#e0e0e0",
+        },
+        bar: {
+          borderRadius: 5,
+          backgroundColor: "#0C89E2",
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: "#fff",
+          borderRadius: "12px !important",
+          boxShadow: "0px 4px 20px rgba(0,0,0,0.15)",
+          border: 0,
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontSize: "16px",
+          padding: "8px 16px",
+          color: "#000",
+          backgroundColor: "#fff !important",
+          "&:hover": {
+            color: "#00000066",
+            backgroundColor: "#fff !important",
+          },
+        },
+      },
     },
   },
 });

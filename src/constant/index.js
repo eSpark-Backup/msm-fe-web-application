@@ -373,3 +373,24 @@ export const trendzBoardPricing = [
     height: 277,
   },
 ];
+export const alarmData = [
+  {
+    id: 1,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    severity: "critical",
+    chip: { variant: "red", label: "Critical" },
+    assignee: "Tarmmimi",
+    status: "Acknowledge",
+  },
+  {
+    id: 2,
+    ctime: "2025-05-09 18:52:32",
+    originator: "Smart Sensor",
+    type: "Speed Limit",
+    chip: { variant: "yellow", label: "Warning" },
+    assignee: "Non-Assign",
+    status: "Acknowledge",
+  },
+];

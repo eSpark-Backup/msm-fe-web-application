@@ -7,6 +7,7 @@ import CustomizeTabs from "./customize-tabs";
 import DataProgressBar from "./data-progress-bar";
 import SearchBar from "./search-bar";
 import PlanCard from "./plan-card";
+import DropdownFilterMenu from "./dropdown-filter-menu";
 
 export {
   OutlinedInput,
@@ -18,4 +19,5 @@ export {
   DataProgressBar,
   SearchBar,
   PlanCard,
+  DropdownFilterMenu,
 };

@@ -5,7 +5,7 @@ import {
   Select,
   FormHelperText,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DropDownIcon } from "../assets";
 
 const CustomIcon = (props) => (
@@ -20,6 +20,7 @@ const CustomIcon = (props) => (
 );
 
 const Dropdown = ({
+  sx,
   name,
   disabled,
   variant,
@@ -31,14 +32,23 @@ const Dropdown = ({
   helperText,
   value,
 }) => {
-  const [options] = useState(
+  const [options, setOptions] = useState(
     noLabel
       ? [{ label: placeholder, value: placeholder }, ...dropdownOptions]
       : dropdownOptions
   );
+
+  useEffect(() => {
+    setOptions(
+      noLabel
+        ? [{ label: placeholder, value: placeholder }, ...dropdownOptions]
+        : dropdownOptions
+    );
+  }, [dropdownOptions]);
+
   return (
     <>
-      <FormControl sx={{ width: "100%" }} variant="filled" error={error}>
+      <FormControl sx={{ width: "100%", ...sx }} variant="filled" error={error}>
         {!noLabel && (
           <InputLabel id="demo-simple-select-filled-label">
             {placeholder}
